@@ -13,7 +13,8 @@ namespace AdventOfCode2020
 
         public Day1()
         {
-            this.array = File.ReadAllLines("day1.txt").Select(t => Convert.ToInt32(t)).ToArray();
+            Console.WriteLine("\n ****** DAY 1 ******");
+            this.array = File.ReadAllLines("day1/day1.txt").Select(t => Convert.ToInt32(t)).ToArray();
         }
 
         /// <summary>

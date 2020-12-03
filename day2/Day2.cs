@@ -12,7 +12,9 @@ namespace AdventOfCode2020
         private string[] input;
         public Day2()
         {
-            input = File.ReadAllLines("day2.txt");
+            Console.WriteLine("\n ****** DAY 2 ******");
+
+            input = File.ReadAllLines("day2/day2.txt");
         }
 
         public void SolveA()
