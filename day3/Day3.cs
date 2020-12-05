@@ -11,14 +11,18 @@ namespace AdventOfCode2020
     public class Day3
     {
         private string[] input;
-        private Map map;
+        public readonly int Width;
+        public readonly int Height;
+
 
         public Day3()
         {
             Console.WriteLine("\n ****** DAY 3 ******");
 
             input = File.ReadAllLines("day3/day3.txt");
-            map = new Map(input[0].Length, input.Length, 3, 1);
+            Width = input[0].Length;
+            Height = input.Length;
+
         }
 
         public void SolveA()
@@ -28,12 +32,16 @@ namespace AdventOfCode2020
             int result = 0;
             int posX = 0;
             int posY = 0;
+            int SlopX = 3;
+            int SlopY = 1;
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            while (posY != map.Height - 1)
+            while (posY != Height - 1)
             {
-                map.NextPosition(ref posX, ref posY);
+                //map.NextPosition(ref posX, ref posY);
+                posX = (posX + 3) % Width; // a % b -> a - (a / b) * b;
+                posY += 1;
 
                 if (input[posY][posX] == '#')
                 {
@@ -69,6 +77,8 @@ namespace AdventOfCode2020
             long result = 1;
             int posX = 0;
             int posY = 0;
+            int SlopX = 3;
+            int SlopY = 1;
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -78,12 +88,13 @@ namespace AdventOfCode2020
                 posY = 0;
                 numberOfTrees = 0;
 
-                map.SlopX = currentSlop[0];
-                map.SlopY = currentSlop[1];
+                SlopX = currentSlop[0];
+                SlopY = currentSlop[1];
 
-                while (posY != map.Height - 1)
+                while (posY != Height - 1)
                 {
-                    map.NextPosition(ref posX, ref posY);
+                    posX = (posX + SlopX) % input[0].Length; // a % b -> a - (a / b) * b;
+                    posY += SlopY;
 
                     if (input[posY][posX] == '#')
                     {

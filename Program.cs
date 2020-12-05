@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AdventOfCode2020.day4;
+using AdventOfCode2020.day5;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +20,19 @@ namespace AdventOfCode2020
             //day2.SolveA();
             //day2.SolveB();
 
-            var day3 = new Day3();
-            day3.SolveA();
-            day3.SolveB();
+            //var day3 = new Day3();
+            //day3.SolveA();
+            //day3.SolveB();
+
+            //var day4 = new Day4();
+            //day4.SolveA();
+            //day4.SolveB();
+
+
+            var day5 = new Day5();
+            day5.SolveA();
+            day5.SolveB();
+
             Console.ReadKey();
         }
     }
