@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2020.day5
 {
-    public class Day5
+    public class Day5 : Day
     {
-        string[] input;
-        public Day5()
+        public Day5() : base("day5")
         {
             Console.WriteLine("\n ****** DAY 5 ******");
 
-            input = File.ReadAllLines("day5/day5.txt");
         }
 
         /*
@@ -45,7 +43,7 @@ namespace AdventOfCode2020.day5
             BBFFBBFRLL: row 102, column 4, seat ID 820.
         As a sanity check, look through your list of boarding passes. What is the highest seat ID on a boarding pass?
          */
-        public void SolveA()
+        public override void SolveA()
         {
             Console.WriteLine("-----Part1-----");
             int result=0;
@@ -100,7 +98,7 @@ namespace AdventOfCode2020.day5
         Your seat wasn't at the very front or back, though; the seats with IDs +1 and -1 from yours will be in your list.
         What is the ID of your seat?
          */
-        public void SolveB() 
+        public override void SolveB() 
         {
             //The IDs are between 8 and 1016
             // the ID is between to existent IDs

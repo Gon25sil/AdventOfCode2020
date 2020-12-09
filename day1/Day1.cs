@@ -32,9 +32,6 @@ namespace AdventOfCode2020
         /// </summary>
         public void SolverA()
         {
-            
-
-            #region Part 1
             Console.WriteLine("-----Part1-----");
 
             HashSet<int> checkedValues = new HashSet<int>();
@@ -65,8 +62,6 @@ namespace AdventOfCode2020
 
             Console.WriteLine($"Elapsed time (ms): {elapsedMs}");
             Console.WriteLine($"Elapsed ticks: {elapsedTicks}");
-            #endregion
-
 
         }
 

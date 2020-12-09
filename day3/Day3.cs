@@ -29,35 +29,39 @@ namespace AdventOfCode2020
         {
             Console.WriteLine("-----Part1-----");
 
-            int result = 0;
+            long numberOfTrees = 0;
             int posX = 0;
             int posY = 0;
             int SlopX = 3;
             int SlopY = 1;
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
-
-            while (posY != Height - 1)
-            {
-                //map.NextPosition(ref posX, ref posY);
-                posX = (posX + 3) % Width; // a % b -> a - (a / b) * b;
-                posY += 1;
-
-                if (input[posY][posX] == '#')
-                {
-                    result++;
-                }
-            }
+            MoveToNextPosition(ref numberOfTrees, ref posX, ref posY, SlopX, SlopY);
 
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;
             var elapsedTicks = watch.ElapsedTicks;
 
-            Console.WriteLine($"Value found: {result}");
+            Console.WriteLine($"Value found: {numberOfTrees}");
 
             Console.WriteLine($"Elapsed time (ms): {elapsedMs}");
             Console.WriteLine($"Elapsed ticks: {elapsedTicks}");
 
+        }
+
+        private void MoveToNextPosition(ref long numberOfTrees, ref int posX, ref int posY, int SlopX, int SlopY)
+        {
+            while (posY != Height - 1)
+            {
+                //map.NextPosition(ref posX, ref posY);
+                posX = (posX + SlopX) % Width; // a % b -> a - (a / b) * b;
+                posY += SlopY;
+
+                if (input[posY][posX] == '#')
+                {
+                    numberOfTrees++;
+                }
+            }
         }
 
         public void SolveB()
@@ -73,7 +77,7 @@ namespace AdventOfCode2020
                 new int[] { 1,2 }
             };
 
-            int numberOfTrees = 0;
+            long numberOfTrees = 0;
             long result = 1;
             int posX = 0;
             int posY = 0;
@@ -91,17 +95,8 @@ namespace AdventOfCode2020
                 SlopX = currentSlop[0];
                 SlopY = currentSlop[1];
 
-                while (posY != Height - 1)
-                {
-                    posX = (posX + SlopX) % input[0].Length; // a % b -> a - (a / b) * b;
-                    posY += SlopY;
-
-                    if (input[posY][posX] == '#')
-                    {
-                        numberOfTrees++;
-                    }
-                }
-
+                MoveToNextPosition(ref numberOfTrees, ref posX, ref posY, SlopX, SlopY);
+                
                 result *= numberOfTrees;
             }
 
