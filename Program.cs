@@ -2,6 +2,7 @@
 using AdventOfCode2020.day11;
 using AdventOfCode2020.day12;
 using AdventOfCode2020.day13;
+using AdventOfCode2020.day14;
 using AdventOfCode2020.day4;
 using AdventOfCode2020.day5;
 using AdventOfCode2020.day6;
@@ -67,9 +68,13 @@ namespace AdventOfCode2020
             //day12.SolveA();
             //day12.SolveB();
 
-            var day13 = new Day13();
-            day13.SolveA();
-            day13.SolveB();
+            //var day13 = new Day13();
+            //day13.SolveA();
+            //day13.SolveB();
+
+            var day14 = new Day14();
+            day14.SolveA();
+            day14.SolveB();
             Console.ReadKey();
         }
     }

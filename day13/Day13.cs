@@ -9,7 +9,6 @@ namespace AdventOfCode2020.day13
     public class Day13 : Day
     {
         private int timestamp { get; set; }
-        private string[] busIds { get; set; }
 
         public Day13() : base("day13")
         {
