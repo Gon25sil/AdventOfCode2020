@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdventOfCode2020.day15;
+using AdventOfCode2020.day16;
 
 namespace AdventOfCode2020
 {
@@ -72,9 +74,17 @@ namespace AdventOfCode2020
             //day13.SolveA();
             //day13.SolveB();
 
-            var day14 = new Day14();
-            day14.SolveA();
-            day14.SolveB();
+            //var day14 = new Day14();
+            //day14.SolveA();
+            //day14.SolveB();
+
+            //var day15 = new Day15();
+            //day15.SolveA();
+            //day15.SolveB();
+
+            var day16 = new Day16();
+            day16.SolveA();
+            day16.SolveB();
             Console.ReadKey();
         }
     }

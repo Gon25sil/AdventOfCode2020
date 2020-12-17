@@ -53,6 +53,8 @@
     <Compile Include="day12\Day12.cs" />
     <Compile Include="day13\Day13.cs" />
     <Compile Include="day14\Day14.cs" />
+    <Compile Include="day15\Day15.cs" />
+    <Compile Include="day16\Day16.cs" />
     <Compile Include="day1\Day1.cs" />
     <Compile Include="day2\Day2.cs" />
     <Compile Include="day3\Day3.cs" />
@@ -83,6 +85,12 @@
     <Content Include="day14\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="day15\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="day16\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="day1\day1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -111,5 +119,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

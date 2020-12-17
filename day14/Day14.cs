@@ -36,7 +36,7 @@ namespace AdventOfCode2020.day14
 
                     for (int j = 0; j < currMask.Length; j++)
                     {
-                        var vbit = currValue & (long)Math.Pow(2, currMask.Length - j - 1);
+                        long vbit = currValue & (long)Math.Pow(2, currMask.Length - j - 1);
 
                         if (currMask[j] == 'X')
                             newValue += vbit;
@@ -56,7 +56,7 @@ namespace AdventOfCode2020.day14
 
 
             }
-            long result = adress2value.Sum(x=>x.Value);
+            long result = adress2value.Sum(x => x.Value);
             watch.Stop();
 
             Console.WriteLine($"Value found: {result}");
@@ -69,8 +69,60 @@ namespace AdventOfCode2020.day14
             Console.WriteLine("-----Part2-----");
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
+            char[] currMask = new char[36];
+            int currMemoryAddr = -1;
+            long value = -1;
+            Dictionary<long, long> adress2value = new Dictionary<long, long>();
 
-            int result = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+
+                //Validate if is a mask or not
+                if (input[i].Substring(0, 4) == "mask")
+                    currMask = input[i].Substring(7, 36).ToCharArray();
+                else
+                {
+                    currMemoryAddr = Int32.Parse(Regex.Match(input[i], @"\[(.*)]").Groups[1].Value);
+                    value = Int32.Parse(Regex.Match(input[i], @"\d+$").Value);
+
+                    List<long> addresses = new List<long>() { 0 };
+                    for (int j = 0; j < currMask.Length; j++)
+                    {
+                        long vbit = currMemoryAddr & (long)Math.Pow(2, currMask.Length - j - 1);
+
+                        int sizeBeforeNewAddresses = addresses.Count;
+                        for (int k = 0; k < sizeBeforeNewAddresses; k++)
+                        {
+                            switch (currMask[j])
+                            {
+                                case 'X':
+                                    addresses.Add(addresses[k] + (long)Math.Pow(2, currMask.Length - j - 1));
+                                    break;
+                                case '1':
+                                    addresses[k] += (long)Math.Pow(2, currMask.Length - j - 1);
+
+                                    break;
+                                case '0':
+                                    addresses[k] += vbit;
+
+                                    break;
+                            }
+
+                        }
+                    }
+
+                    for (int j = 0; j < addresses.Count; j++)
+                    {
+                        if (adress2value.ContainsKey(addresses[j]))
+                            adress2value[addresses[j]] = value;
+                        else
+                            adress2value.Add(addresses[j], value);
+                    }
+                }
+
+
+            }
+            long result = adress2value.Sum(x => x.Value);
             watch.Stop();
 
             Console.WriteLine($"Value found: {result}");
