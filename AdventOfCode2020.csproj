@@ -55,6 +55,7 @@
     <Compile Include="day14\Day14.cs" />
     <Compile Include="day15\Day15.cs" />
     <Compile Include="day16\Day16.cs" />
+    <Compile Include="day17\Day17.cs" />
     <Compile Include="day1\Day1.cs" />
     <Compile Include="day2\Day2.cs" />
     <Compile Include="day3\Day3.cs" />
@@ -89,6 +90,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="day16\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="day17\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="day1\day1.txt">
